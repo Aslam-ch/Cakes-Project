@@ -1,0 +1,80 @@
+### all cake list api
+
+GET http://127.0.0.1:8000/cakes/
+# Authorization: Basic user user
+
+### create a cake
+POST http://127.0.0.1:8000/cakes/
+# Authorization: Token e3c7038cae232ccf44c6764f88ea9f0b83b7e746
+# Content-Type: multipart/form-data; boundary=abc
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzMzM4MTExLCJpYXQiOjE3OTMzMzc4MTEsImp0aSI6ImJmMDdjOWRiOWU2ZDQ5MTY4YWRjMjU2OWEwMDU1MmNlIiwidXNlcl9pZCI6IjIifQ.UKP6KfXbvp8w2Jq0ADnSWqhS7k6v6dWnpRkCapOXhtA
+Content-Type: multipart/form-data; boundary=abc
+
+--abc
+Content-Disposition: form-data; name="name"
+
+Chocolate Cake 
+--abc
+Content-Disposition: form-data; name="description"
+
+Rich chocolate cake
+--abc
+Content-Disposition: form-data; name="photo"; filename="image.jpg"
+Content-Type: image/jpeg
+
+< .\image.jpg
+--abc
+Content-Disposition: form-data; name="category"
+
+2
+--abc
+Content-Disposition: form-data; name="shape"
+
+1
+--abc
+Content-Disposition: form-data; name="weight"
+
+1 
+--abc
+Content-Disposition: form-data; name="price"
+
+1000
+--abc--
+
+### cake retrieve api
+GET http://127.0.0.1:8000/cakes/1/
+
+
+### cake patch api
+PATCH  http://127.0.0.1:8000/cakes/1/
+Content-Type: application/json
+
+{
+    "name": "Red Velvet",
+    "description": "Yummy yummyyy",
+    "price": 1500
+}
+
+### cake delete api
+DELETE http://127.0.0.1:8000/cakes/1/
+
+### login api
+POST http://127.0.0.1:8000/login/
+Content-Type: application/json
+
+{
+    "username": "user",
+    "password": "user"
+}
+
+### register api
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username":"teco9792@mailinator.com",
+    "first_name":"aslam",
+    "role":"User",
+    "password":"123"
+}
