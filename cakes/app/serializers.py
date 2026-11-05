@@ -76,6 +76,19 @@ class CakeSerializer(serializers.ModelSerializer):
 
     weight = weightfield(queryset=Weight.objects.all())
 
+    status = serializers.SerializerMethodField()
+
+    def get_status (self,obj):
+
+        if obj.price < 1000 :
+
+            return 'max server'
+
+        return None
+
+    
+
+
 
     class Meta:
 
